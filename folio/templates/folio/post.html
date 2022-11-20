@@ -1,0 +1,51 @@
+{% extends 'folio/base.html' %}
+{% load static %}
+{% block content %}
+<section class="blog-section">
+    <div class="container-fluid">
+        <div class="pt-4 mt-5">
+            <h1 class="about-head pt-4">Blog</h1>
+        </div>
+    </div>
+</section>
+<section class="blog-post">
+    <div class="container pt-4 mt-4">
+        {% for blog_post in blog_posts %}
+        <article class="media content-section">
+            <div class="media-body">
+                <div class="article-metadata">
+                    <a class="mr-2" href="#">{{ blog_post.author }}</a>
+                    <small class="text-muted">{{ blog_post.date_posted|date:"F d, Y" }}</small>
+                </div>
+                <img class="article-img" src="{{ blog_post.image.url }}" height="400px" width="100%" alt="">
+                <h2><a href="{% url 'post-detail' blog_post.id %}" class="article-title">{{ blog_post.title }}</a></h2>
+                <p class="article-content">{{ blog_post.content }}</p>
+            </div>
+        </article>
+        {% endfor %}
+    </div>
+</section>
+<section class="pages">
+    <div class="container">
+        {% if is_paginated %}
+        {% if page_obj.has_previous %}
+            <a style="background-color: #6F38C5; color: white; border: none; box-shadow: none;" class="btn btn-outline-info mb-4" href="?page=1">First</a>
+            <a style="background-color: #6F38C5; color: white; border: none; box-shadow: none;" class="btn btn-outline-info mb-4" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+        {% endif %}
+
+        {% for num in page_obj.paginator.page_range %}
+            {% if page_obj.number == num %}
+                <a style="background-color: #6F38C5; color: white; border: none; box-shadow: none;" class="btn btn-info mb-4" href="?page={{ num }}">{{ num }}</a>
+            {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                <a style="background-color: #6F38C5; color: white; border: none; box-shadow: none;" class="btn btn-outline-info mb-4" href="?page={{ num }}">{{ num }}</a>
+            {% endif %}
+        {% endfor %}
+
+        {% if page_obj.has_next %}
+            <a style="background-color: #6F38C5; color: white; border: none; box-shadow: none;" class="btn btn-outline-info mb-4" href="?page={{ page_obj.next_page_number }}">Next</a>
+            <a style="background-color: #6F38C5; color: white; border: none; box-shadow: none;" class="btn btn-outline-info mb-4" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+        {% endif %}
+    {% endif %}
+    </div>
+</section>
+{% endblock content %}

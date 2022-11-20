@@ -1,0 +1,66 @@
+{% extends 'folio/base.html' %}
+{% load static %}
+{% block content %}
+<section class="blog-section">
+    <div class="container-fluid">
+        <div class="pt-4 mt-5">
+            <h1 class="about-head pt-4">Blog</h1>
+        </div>
+    </div>
+</section>
+<section class="blog-post">
+    <div class="container pt-4 mt-4">
+        <article class="media content-section">
+            <div class="media-body">
+                <div class="article-metadata">
+                    <a class="mr-2" href="#">{{ object.author }}</a>
+                    <small class="text-muted">{{ object.date_posted|date:"F d, Y" }}</small>
+                </div>
+                <img class="article-img" src="{{ object.image.url }}" height="350px" width="100%" alt="">
+                <h2 class="article-title">{{ object.title }}</h2>
+                <p class="article-content">{{ object.content }}</p>
+            </div>
+        </article>
+    </div>
+</section>
+<section class="comment-sec">
+    <div class="container pb-4">
+        <h2>Comments({{ post_comment_count }})</h2>
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="media-list">
+                    {% for comment in post_comments %}
+                    <div class="avatar avatar-sm mr-4">
+                        <img src="{% static 'folio/images/avatar.png' %}" height="30px" alt="">
+                        <div class="media-body">
+                            <div class="small-1">
+                                <b>{{ comment.user }}</b>
+                                <time class="ml-4 opacity-70 small-3">{{ comment.date|date:"M d, Y" }}</time>
+                            </div>
+                            <p>{{ comment.content }}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% if user.is_authenticated %}
+                    <form method="POST" action="{% url 'post-detail' pk=blogpost.id %}">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            {{ form }}
+                        </div>
+                            <button class="btn" style="background-color: #6F38C5; color:#fff; box-shadow:none;" type="submit">Comment</button>
+                    </form>
+                {% else %}
+                <form method="POST" action="{% url 'post-detail' pk=blogpost.id %}">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        {{ form }}
+                    </div>
+                        <a href="{% url 'login' %}" class="btn" style="background-color: #6F38C5; color:#fff; box-shadow:none;" type="submit">Login to continue</a>
+                </form>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

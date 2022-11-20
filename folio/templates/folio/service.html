@@ -1,0 +1,30 @@
+{% extends 'folio/base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="service-section">
+    <div class="container">
+        <div class="pt-4 mt-5">
+            <h1 class="about-head pt-4">Services</h1>
+        </div>
+    </div>
+</section>
+<section class="service pb-4">
+    <div class="container pt-4">
+        <div class="row">
+            {% for service in services %}
+            <div class="col-md-4 pb-3">
+                <div class="card">
+                    <img src="{{ service.image1.url }}" height="350px" width="350px" alt="Card Back">
+                    <img src="{{ service.image2.url }}"  height="350px" width="350px" class="img-top" alt="Card Front">
+                    <div class="card-body service-body">
+                        <h3 class="card-title">{{ service.title }}</h3>
+                        <p class="card-text">{{ service.content }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock content %}

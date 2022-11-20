@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Merriweather:ital@1&family=Montserrat&family=Roboto+Condensed:wght@700&family=Ubuntu&display=swap');
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  background-color: #EEEEEE;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+.logo-img {
+  padding-left: 36%;
+}
+
+.logo {
+  height: 90px;
+  width: 100px;
+  padding-right: 10px;
+}
+
+.display-1 {
+  color: #6F38C5;
+  font-size: 25px;
+  font-weight: bold;
+  font-family: merriweather;
+}
+
+.brand-sign {
+  font-size: 50px;
+}
+
+.banner-image {
+  background-image: url("{% static 'folio/images/tiles.jpg' %}");
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 400px;
+  height: 120vh;
+}
+
+.text-heading {
+  color: #FFECEF;
+  text-align: center;
+  position: absolute;
+  font-size: 50px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.text-centent {
+  color: #FFECEF;
+  position: absolute;
+  font-size: 20px;
+  top: 70%;
+  left: 20%;
+}
+
+.centents {
+  color: #FFECEF;
+  position: absolute;
+  font-size: 20px;
+  top: 70%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+}
+
+.nav-link {
+  font-size: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.navbar .nav-link:hover {
+  color: #fff;
+  background: #976fbe;
+}
+
+.content-section {
+  background: #ffffff;
+  padding: 10px 20px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+
+.carousel-item {
+  background: no-repeat scroll center scroll;
+  -webkit-background-size: cover;
+  background-size: cover;
+}
+
+.carousel-item::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: #000;
+  opacity: 0.5;
+}
+
+.carousel-caption {
+  text-align: center;
+  justify-content: center;
+}
+
+.carousel-caption h5 {
+  display: inline-block;
+  font-size: 50px;
+  font-weight: 500;
+}
+
+.carousel-caption p {
+  font-size: 18px;
+  top: 100%
+}
+
+.caro-img {
+  justify-content: center;
+  align-content: center;
+}
+
+
+.second-carousel {
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.blog-metadate {
+  padding-bottom: 1px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid #e3e3e3
+}
+
+.blog-metadate a:hover {
+  color: #6F38C5;
+  text-decoration: none;
+}
+
+
+
+

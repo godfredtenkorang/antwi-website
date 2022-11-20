@@ -1,0 +1,65 @@
+{% extends 'folio/base.html' %}
+{% load static %}
+{% block content %}
+    <section class="about-section">
+        <div class="container-fluid">
+            <div class="pt-4 mt-5">
+                <h1 class="about-head pt-4">About</h1>
+            </div>
+        </div>
+    </section>
+    <section class="about-us pt-5 pb-5 mb-4" style="background-color: #EEEEEE;">
+        <div class="container">
+            <div class="row">
+                <div class="about-image col-md-6">
+                    <img src="{% static 'folio/images/antwi-img.png' %}" height="450px" alt="">
+                </div>
+                <div class="col-md-6 pt-5">
+                    <div>
+                        <h1 class="text-muted">Personal Details</h1>
+                        <p class="pt-3" style="font-size: 23px;">Hi, this is me Kojo Antwi and the CEO of Antwi And Sons Construstion LLC. I am a self-employed worker which my occupation is to make floor installation and tile and marble setters, door and windows installation or any carpentary work. You can get me wherever you are across the world when you contact me and I world love to hear from you.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="why-us">
+        <div class="container">
+            <div class="tiling-sample text-center">
+                <h1>Why <span style="color: #6F38C5; font-weight:600;">Choose Us</span></h1>
+            </div>
+            <div class="row pt-4">
+                <div class="col-md-4">
+                    <div class="why-content">
+                        <img class="why-img" src="{% static 'folio/images/GDD.png' %}" height="100px" alt="">
+                    <div class="why-text">
+                        <span style="font-size: 25px; ">Planned Structure</span>
+                        <p>We have a guide that helps the development and redevelopment of an area. This helps us to constantly and concentrate on what we are doing.</p>
+                    </div>
+                </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="why-content">
+                        <img class="why-img" src="{% static 'folio/images/GOO.png' %}" height="100px" alt="">
+                    
+                    <div class="why-text">
+                        <span style="font-size: 25px; ">Advanced Equipment</span>
+                        <p>We have the required and modern equipments that helps our work easier and faster.</p>
+                    </div>
+                </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="why-content">
+                        <img class="why-img" src="{% static 'folio/images/godey.png' %}" height="100px" alt="">
+                   
+                    <div class="why-text">
+                        <span style="font-size: 25px; ">Quality Staffs</span>
+                        <p>We have staffs who are competent, trained or experience in every field they are.</p>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock content %}

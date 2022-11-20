@@ -1,0 +1,26 @@
+{% extends 'folio/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container pt-4 mt-5" style="width: 500px;">
+    <div class="content-section">
+        <img class="logo-img" src="{% static 'folio/images/Antwi-&-sons-logo.pngg.png' %}" height="120px" alt="">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4"></legend>
+                {{ form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button style="background-color: #6F38C5; color: white; box-shadow: none; border: none;"  class="btn btn-outline-info" type="submit">Sign Up</button>
+            </div>
+        </form>
+        <div class="border-top pt-3">
+            <small class="text-muted">
+                Already Have An Account? <a href="{% url 'login' %}" class="ml-2">Sign In</a>
+            </small>
+        </div>
+    </div>
+</div>
+    
+{% endblock content %}
